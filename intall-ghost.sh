@@ -24,9 +24,9 @@ if [ ! -d "$TARGET_DIR" ]; then
   fi
 fi
 
-# Copy the .dsh directory to the target location
-if ! cp -r .dsh "$TARGET_DIR"; then
-  echo "Error: Failed to copy the '.dsh' directory to the target location."
+# Copy the contents of the .dsh directory to the target location
+if ! cp -r .dsh/* "$TARGET_DIR"; then
+  echo "Error: Failed to copy the contents of '.dsh' directory to the target location."
   exit 1
 fi
 
