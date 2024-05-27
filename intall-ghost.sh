@@ -36,12 +36,12 @@ if ! find "$TARGET_DIR" -type f -name "*.sh" -exec chmod +x {} \; ; then
 fi
 
 # Copy the options file to the current location and /usr/local/bin
-if ! chmod +x options; then
+if ! chmod +x options.sh; then
   echo "Error: Failed to make the 'options' file executable."
   exit 1
 fi
 
-if ! sudo cp options /usr/local/bin; then
+if ! sudo cp options.sh /usr/local/bin; then
   echo "Error: Failed to copy the 'options' file to /usr/local/bin."
   exit 1
 fi
