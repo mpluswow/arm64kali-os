@@ -14,6 +14,7 @@ main_menu() {
   echo -e "${GREEN}2)${NC} Modify Configuration"
   echo -e "${GREEN}3)${NC} Uninstall DDNS Client"
   echo -e "${GREEN}4)${NC} Exit"
+  echo
   echo -n "Choose an option: "
   read -r choice
   case $choice in
@@ -21,7 +22,7 @@ main_menu() {
     2) /root/.dsh/ddns/ddns-configure.sh ;; # Assuming this script modifies the configuration
     3) /root/.dsh/ddns/ddns-uninstall.sh ;;
     4) exit 0 ;;
-    *) echo "Invalid option" && sleep 1 && main_menu ;;
+    *) echo -e "Invalid option. Please choose a valid option." && sleep 1 && main_menu ;;
   esac
 }
 
