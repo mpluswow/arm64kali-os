@@ -18,9 +18,9 @@ main_menu() {
   echo -n "Choose an option: "
   read -r choice
   case $choice in
-    1) /root/.dsh/install-packages ;;
-    2) /root/.dsh/conf/modify-config ;;
-    3) /root/.dsh/conf/restart-services ;;
+    1) /root/.dsh/install/install-packages.sh ;;
+    2) /root/.dsh/conf/modify-configs.sh ;;
+    3) /root/.dsh/conf/restart-services.sh ;;
     6) exit 0 ;;
     *) echo "Invalid option" && sleep 1 && main_menu ;;
   esac
