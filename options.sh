@@ -21,7 +21,8 @@ main_menu() {
     1) /root/.dsh/install/install-packages.sh ;;
     2) /root/.dsh/conf/modify-configs.sh ;;
     3) /root/.dsh/conf/restart-services.sh ;;
-	4) /root/.dsh/ddns/ddns-menu.sh
+    4) /root/.dsh/ddns/ddns-menu.sh ;;
+    5) echo "Option 5 selected. Future functionality can be added here." && sleep 1 && main_menu ;;
     6) exit 0 ;;
     *) echo "Invalid option" && sleep 1 && main_menu ;;
   esac
@@ -29,4 +30,3 @@ main_menu() {
 
 # Run the main menu
 main_menu
-

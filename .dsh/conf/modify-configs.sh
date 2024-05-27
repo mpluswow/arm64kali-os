@@ -13,6 +13,7 @@ modify_configs_menu() {
   echo -e "${GREEN}2)${NC} Modify Lighttpd Config"
   echo -e "${GREEN}3)${NC} Modify MariaDB Config"
   echo -e "${GREEN}4)${NC} Modify VNCServer Config"
+  echo -e "${GREEN}5)${NC} Modify DDNS Client Config"
   echo -n "Choose an option: "
   read -r choice
   case $choice in
@@ -20,6 +21,7 @@ modify_configs_menu() {
     2) nano /etc/lighttpd/lighttpd.conf ;;
     3) nano /etc/mysql/mariadb.conf.d/50-server.cnf ;;
     4) nano /etc/vnc.conf ;;
+	5) nano /etc/ddclient.conf ;;
     *) echo "Invalid option" && sleep 1 && modify_configs_menu ;;
   esac
 }

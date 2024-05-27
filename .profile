@@ -31,7 +31,7 @@ is_service_installed() {
 # Function to restart a service if installed
 manage_service() {
   local service=$1
-  local service_name=$2
+  local service_name=${2:-$service}  # Default to $service if $service_name is not provided
   if is_service_installed "$service"; then
     log_service "Restarting $service_name..."
     sudo service $service stop
@@ -43,6 +43,12 @@ manage_service() {
   fi
 }
 
+# Ensure the script is run with sufficient privileges
+if [ "$EUID" -ne 0 ]; then
+  log_message "Please run this script as root or with sudo."
+  exit 1
+fi
+
 # Notify users that the script has started
 log_message "Starting service management script."
 
@@ -50,6 +56,8 @@ log_message "Starting service management script."
 manage_service "mariadb" "MariaDB"
 manage_service "lighttpd" "Lighttpd"
 manage_service "ssh" "SSH"
+manage_service "ddclient" "ddclient"
+
 echo
 # Notify users that the script has completed
 log_message "Service management script completed."
